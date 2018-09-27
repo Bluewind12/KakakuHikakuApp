@@ -60,6 +60,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="検索ワードを入力"
+        android:maxLines="1"
         app:layout_constraintEnd_toStartOf="@+id/searchButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
