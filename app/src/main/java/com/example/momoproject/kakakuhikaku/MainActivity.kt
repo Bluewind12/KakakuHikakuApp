@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        backAmazon.visibility = View.INVISIBLE
+        backRakuten.visibility = View.INVISIBLE
 
         searchButton.setOnClickListener {
             val editString = editText.text
@@ -28,6 +30,16 @@ class MainActivity : AppCompatActivity() {
             //楽天ページ
             webRakuten.webViewClient = WebViewClient()
             webRakuten.loadUrl(serchRakuten)
+
+            backAmazon.visibility = View.VISIBLE
+            backRakuten.visibility = View.VISIBLE
+        }
+
+        backAmazon.setOnClickListener {
+            webAmazon.goBack()
+        }
+        backRakuten.setOnClickListener {
+            webRakuten.goBack()
         }
     }
 }
