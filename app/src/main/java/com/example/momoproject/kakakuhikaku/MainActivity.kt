@@ -2,21 +2,17 @@ package com.example.momoproject.kakakuhikaku
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebView
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_main.*
-import android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.view.inputmethod.InputMethodManager
 
 
 class MainActivity : AppCompatActivity() {
 
-    val AMAZON_URL = "https://www.amazon.co.jp/s/field-keywords="
+    val AMAZON_URL = "https://www.amazon.co.jp/gp/aw/s/ref=nb_sb_noss?k="
     val RAKUTEN_URL = "https://search.rakuten.co.jp/search/mall/"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
