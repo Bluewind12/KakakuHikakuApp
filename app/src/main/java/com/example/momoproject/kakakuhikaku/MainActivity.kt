@@ -9,8 +9,10 @@ import android.view.View
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.inputmethod.InputMethodManager
-import com.example.momoproject.kakakuhikaku.R.id.editText
-import android.view.KeyEvent.KEYCODE_ENTER
+import android.R.menu
+import android.app.Activity
+import android.view.Menu
+import android.view.MenuItem
 
 
 class MainActivity : AppCompatActivity() {
@@ -68,6 +70,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+    }
+
+   override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_menu1 -> {
+                startActivity(Intent(this, SettingActivity::class.java))
+                return true
+            }
+        }
+        return true
     }
 
     fun searchFunction() {
