@@ -2,6 +2,7 @@ package com.example.momoproject.kakakuhikaku
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -9,19 +10,17 @@ import android.view.View
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.inputmethod.InputMethodManager
-import android.R.menu
-import android.app.Activity
 import android.view.Menu
 import android.view.MenuItem
 
 
 class MainActivity : AppCompatActivity() {
-
-    val AMAZON_URL = "https://www.amazon.co.jp/gp/aw/s/ref=nb_sb_noss?k="
-    val RAKUTEN_URL = "https://search.rakuten.co.jp/search/mall/"
+    private lateinit var settingData: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        settingData = getSharedPreferences("SettingData", Context.MODE_PRIVATE)
 
         //最初は非表示
         backAmazon.visibility = View.INVISIBLE
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-   override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
@@ -92,8 +91,8 @@ class MainActivity : AppCompatActivity() {
         imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS)
 
         val editString = editText.text
-        val searchAmazon = AMAZON_URL + editString
-        val searchRakuten = RAKUTEN_URL + editString
+        val searchAmazon = settingData.getString("UP_URL", "https://www.amazon.co.jp/gp/aw/s/ref=nb_sb_noss?k=") + editString
+        val searchRakuten = settingData.getString("DOWN_URL", "https://search.rakuten.co.jp/search/mall/") + editString
 
         //Amazonページ
         webAmazon.webViewClient = WebViewClient()

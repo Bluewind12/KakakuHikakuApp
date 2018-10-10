@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">KakakuHikaku</string>
     <string name="action_menu1">設定</string>
-    <string name="action_menu2">Menu2</string>
+    <string name="up">上画面設定</string>
+    <string name="down">下画面設定</string>
+    <string name="url">URLを入力</string>
 </resources>
